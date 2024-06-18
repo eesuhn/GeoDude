@@ -34,48 +34,40 @@
 			android:paddingBottom="12dp">
 
 			<com.google.android.material.textfield.TextInputLayout
-				android:layout_width="match_parent"
+				android:layout_width="280dp"
 				android:layout_height="wrap_content"
-				style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+				style="@style/FtTextInputLayout"
+				android:layout_marginBottom="12dp"
 				android:gravity="center">
 
-				<com.google.android.material.textfield.TextInputLayout
-					android:layout_width="280dp"
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/nameInput"
+					android:hint="@string/name_input"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					style="@style/FtTextInputLayout"
-					android:layout_marginBottom="12dp"
-					android:gravity="center">
-
-					<com.google.android.material.textfield.TextInputEditText
-						android:id="@+id/nameInput"
-						android:hint="@string/name_input"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						style="@style/FtTextInputEditText"
-						android:padding="14dp"
-						android:inputType="text"
-						android:scrollHorizontally="true"
-						android:maxLines="1"
-						android:ellipsize="end"
-						android:textStyle="bold"
-						android:letterSpacing="0.04"/>
-
-				</com.google.android.material.textfield.TextInputLayout>
-
-				<androidx.appcompat.widget.AppCompatButton
-					android:id="@+id/startBtn"
-					android:text="@string/start_btn_text"
-					android:layout_width="220dp"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="26dp"
-					android:layout_marginEnd="26dp"
-					android:backgroundTint="@color/primary"
-					android:fontFamily="@font/dynamo_condensed"
-					android:textColor="@color/on_primary"
-					android:textSize="22sp"
+					style="@style/FtTextInputEditText"
+					android:padding="14dp"
+					android:inputType="text"
+					android:scrollHorizontally="true"
+					android:maxLines="1"
+					android:ellipsize="end"
+					android:textStyle="bold"
 					android:letterSpacing="0.04"/>
 
 			</com.google.android.material.textfield.TextInputLayout>
+
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/startBtn"
+				android:text="@string/start_btn_text"
+				android:layout_width="220dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="26dp"
+				android:layout_marginEnd="26dp"
+				android:backgroundTint="@color/primary"
+				android:fontFamily="@font/dynamo_condensed"
+				android:textColor="@color/on_primary"
+				android:textSize="22sp"
+				android:letterSpacing="0.04"/>
 
 		</androidx.appcompat.widget.LinearLayoutCompat>
 
