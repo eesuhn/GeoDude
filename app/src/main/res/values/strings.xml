@@ -1,6 +1,5 @@
 <resources>
 	<string name="app_name">Geo Dude!</string>
-	<string name="welcome">Welcome</string>
-	<string name="name_input">e.g. John Doe</string>
+	<string name="name_input">Enter your name!</string>
 	<string name="start_btn_text">START</string>
 </resources>
