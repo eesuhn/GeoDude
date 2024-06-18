@@ -75,7 +75,38 @@ object Constants {
 	/**
 	 * Get a list of 10 random questions, with random options and answers
 	 */
-	/**
-	 * Get a list of 10 random questions, with random options and answers
-	 */
+	fun getQuestions(): List<Question> {
+		val questions = mutableListOf<Question>()
+		val flagDataCopy = flagData.toMutableList()
+
+		for (i in 1..10) {
+			val randomIndex = (0 until flagDataCopy.size).random()
+			val (flag, country) = flagDataCopy[randomIndex]
+			val options = mutableListOf<String>()
+			options.add(country)
+
+			// Generate 3 other random options
+			while (options.size < 4) {
+				val randomOptionIndex = (0 until flagDataCopy.size).random()
+				val randomOption = flagDataCopy[randomOptionIndex].second
+				if (!options.contains(randomOption)) {
+					options.add(randomOption)
+				}
+			}
+			options.shuffle()
+
+			val correctAnswerIndex = options.indexOf(country)
+			questions.add(Question(
+				id = i,
+				question = "What country does this flag belong to?",
+				image = flag,
+				options = options,
+				correctAnswer = correctAnswerIndex
+			))
+
+			// Remove used flag data to avoid repetition
+			flagDataCopy.removeAt(randomIndex)
+		}
+		return questions
+	}
 }
