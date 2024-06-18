@@ -3,6 +3,7 @@
 	<!-- Base colors -->
 	<color name="black">#212121</color>
 	<color name="white">#FFFFFF</color>
+	<color name="dark_gray">#25FFFFFF</color>
 
 	<!-- Primary colors -->
 	<color name="primary">#607D8B</color>

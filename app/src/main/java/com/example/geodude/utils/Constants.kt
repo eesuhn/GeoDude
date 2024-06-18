@@ -75,7 +75,7 @@ object Constants {
 	/**
 	 * Get a list of 10 random questions, with random options and answers
 	 */
-	fun getQuestions(): List<Question> {
+	fun getQuestionList(): List<Question> {
 		val questions = mutableListOf<Question>()
 		val flagDataCopy = flagData.toMutableList()
 
@@ -98,7 +98,6 @@ object Constants {
 			val correctAnswerIndex = options.indexOf(country)
 			questions.add(Question(
 				id = i,
-				question = "What country does this flag belong to?",
 				image = flag,
 				options = options,
 				correctAnswer = correctAnswerIndex
