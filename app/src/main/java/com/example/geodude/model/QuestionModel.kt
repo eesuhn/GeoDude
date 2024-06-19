@@ -1,6 +1,6 @@
 package com.example.geodude.model
 
-data class Question(
+data class QuestionModel(
 	val id: Int,
 	val image: Int,
 	val options: List<String>,

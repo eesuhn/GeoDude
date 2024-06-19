@@ -3,7 +3,7 @@
 	<string name="name_input">Enter your name!</string>
 	<string name="start_btn">START</string>
 	<string name="back_btn">Back button</string>
-	<string name="question_txt">What country does this flag belong to?</string>
+	<string name="question_txt">Which country does this flag belong to?</string>
 	<string name="left_arrow">Left arrow</string>
 	<string name="right_arrow">Right arrow</string>
 	<string name="country_flag">Country flag</string>

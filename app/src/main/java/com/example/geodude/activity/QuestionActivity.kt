@@ -1,4 +1,4 @@
-package com.example.geodude.ui
+package com.example.geodude.activity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.geodude.R
-import com.example.geodude.utils.Constants
+import com.example.geodude.util.Constant
 
 class QuestionActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,7 @@ class QuestionActivity : AppCompatActivity() {
 		enableEdgeToEdge()
 		setContentView(R.layout.activity_question)
 
-		val questionList = Constants.getQuestionList()
+		val questionList = Constant.getQuestionList()
 
 		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 			val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

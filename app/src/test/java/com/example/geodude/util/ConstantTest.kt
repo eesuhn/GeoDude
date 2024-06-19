@@ -1,12 +1,12 @@
-package com.example.geodude.utils
+package com.example.geodude.util
 
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
 
-class ConstantsTest {
+class ConstantTest {
 	@Test
 	fun testGetQuestionList() {
-		val questions = Constants.getQuestionList()
+		val questions = Constant.getQuestionList()
 		assertEquals(10, questions.size)
 
 		questions.forEachIndexed { index, question ->

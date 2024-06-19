@@ -1,112 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/main"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".ui.QuestionActivity"
-	android:background="@drawable/bg_question">
-	
-	<ScrollView
+	tools:context=".activity.QuestionActivity"
+	android:background="@drawable/bg_question"
+	android:orientation="vertical">
+
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
-		
-		<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_marginTop="50dp"
+		android:orientation="horizontal"
+		android:gravity="center_horizontal"
+		android:paddingStart="14dp"
+		android:paddingEnd="14dp"
+		tools:ignore="UseCompoundDrawables">
+
+		<ImageView
+			android:src="@drawable/ic_logo"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:layout_gravity="center_vertical"
+			android:layout_marginStart="16dp"
+			android:layout_marginEnd="0dp"
+			android:contentDescription="@string/app_name" />
+
+		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical">
-			
-			<LinearLayout
-				android:layout_width="match_parent"
+			android:text="@string/question_txt"
+			android:textColor="@color/on_primary"
+			android:fontFamily="@font/archivo_black"
+			android:letterSpacing="0.06"
+			android:lineHeight="26sp"
+			android:textSize="20sp"
+			android:layout_marginStart="10dp"
+			android:layout_marginEnd="16dp"
+			android:layout_gravity="center_vertical"
+			android:gravity="center"
+			android:textDirection="inherit"
+			android:background="@drawable/bg_box"
+			tools:targetApi="p" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginTop="16dp"
+		android:paddingStart="32dp"
+		android:paddingEnd="22dp">
+
+		<androidx.appcompat.widget.LinearLayoutCompat
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:weightSum="10"
+			android:orientation="horizontal"
+			android:paddingTop="10dp"
+			android:paddingBottom="10dp"
+			android:layout_marginStart="0dp"
+			android:layout_marginEnd="10dp">
+
+			<ProgressBar
+				android:layout_width="0dp"
 				android:layout_height="match_parent"
-				android:orientation="horizontal"
-				android:layout_marginStart="10dp"
-				android:layout_marginEnd="10dp"
-				android:layout_marginTop="50dp"
-				tools:ignore="UseCompoundDrawables">
-				
-				<ImageView
-					android:id="@+id/backBtn"
-					android:layout_width="40dp"
-					android:layout_height="40dp"
-					android:padding="8dp"
-					android:src="@drawable/ic_back"
-					android:contentDescription="@string/back_btn" />
+				android:layout_weight="10"
+				android:progress="90"
+				android:indeterminate="false"
+				android:progressDrawable="@drawable/ft_progress_bar"
+				style="?android:attr/progressBarStyleHorizontal" />
 
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/question_txt"
-					android:textColor="@color/on_primary"
-					android:fontFamily="@font/dynamo_condensed"
-					android:letterSpacing="0.04"
-					android:textSize="20sp"
-					android:layout_gravity="center_vertical"
-					android:layout_marginStart="12dp" />
-				
-			</LinearLayout>
+		</androidx.appcompat.widget.LinearLayoutCompat>
 
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:orientation="horizontal"
-				android:layout_marginTop="16dp"
-				android:paddingStart="10dp"
-				android:paddingEnd="10dp">
+		<ImageView
+			android:id="@+id/prevBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:padding="12dp"
+			android:src="@drawable/ic_left_arrow"
+			android:contentDescription="@string/left_arrow" />
 
-				<TextView
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					android:text="Question 1 / 10"
-					android:textSize="20sp"
-					android:fontFamily="@font/dynamo_condensed"
-					android:textColor="@color/on_primary"
-					android:layout_gravity="center_vertical"
-					android:layout_marginStart="16dp"
-					android:layout_marginEnd="0dp"
-					android:letterSpacing="0.04" />
+		<ImageView
+			android:id="@+id/nextBtn"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:padding="12dp"
+			android:src="@drawable/ic_right_arrow"
+			android:contentDescription="@string/right_arrow"
+			android:layout_marginStart="4dp"
+			android:layout_marginEnd="0dp" />
 
-				<ImageView
-					android:id="@+id/prevBtn"
-					android:layout_width="40dp"
-					android:layout_height="40dp"
-					android:padding="12dp"
-					android:src="@drawable/ic_left_arrow"
-					android:contentDescription="@string/left_arrow" />
+	</LinearLayout>
 
-				<ImageView
-					android:id="@+id/nextBtn"
-					android:layout_width="40dp"
-					android:layout_height="40dp"
-					android:padding="12dp"
-					android:src="@drawable/ic_right_arrow"
-					android:contentDescription="@string/right_arrow"
-					android:layout_marginStart="4dp"
-					android:layout_marginEnd="4dp" />
+	<ImageView
+		android:id="@+id/countryFlag"
+		android:layout_gravity="center_horizontal"
+		android:layout_width="220dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="22dp"
+		android:contentDescription="@string/country_flag"
+		android:src="@drawable/au" />
 
-			</LinearLayout>
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/optionList"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="30dp"
+		android:layout_marginStart="10dp"
+		android:layout_marginEnd="10dp" />
 
-			<ImageView
-				android:id="@+id/countryFlag"
-				android:layout_gravity="center_horizontal"
-				android:layout_width="220dp"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="22dp"
-				android:contentDescription="@string/country_flag"
-				android:src="@drawable/au" />
-
-			<androidx.recyclerview.widget.RecyclerView
-				android:id="@+id/optionList"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:layout_marginTop="30dp"
-				android:layout_marginStart="10dp"
-				android:layout_marginEnd="10dp"/>
-			
-		</LinearLayout>
-		
-	</ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
