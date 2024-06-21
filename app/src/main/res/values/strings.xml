@@ -7,4 +7,5 @@
 	<string name="left_arrow">Left arrow</string>
 	<string name="right_arrow">Right arrow</string>
 	<string name="country_flag">Country flag</string>
+	<string name="option_placeholder">Option</string>
 </resources>

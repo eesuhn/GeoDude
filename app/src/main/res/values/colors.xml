@@ -5,6 +5,10 @@
 	<color name="white">#FFFFFF</color>
 	<color name="dark_gray">#25FFFFFF</color>
 
+	<!-- Logo colors -->
+	<color name="logo">#E2DED7</color>
+	<color name="on_logo">#607D8B</color>
+
 	<!-- Primary colors -->
 	<color name="primary">#607D8B</color>
 	<color name="primary_variant">#455A64</color>
@@ -17,6 +21,6 @@
 
 	<!-- Accent colors -->
 	<color name="accent">#B6938E</color>
-	<color name="accent_variant">#8C7B8B</color>
+	<color name="accent_variant">#8C6D62</color>
 	<color name="on_accent">#FFFFFF</color>
 </resources>
