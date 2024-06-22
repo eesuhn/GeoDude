@@ -58,7 +58,9 @@ class ScoreActivity : AppCompatActivity() {
 		val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 		val outputFormat = SimpleDateFormat("HH:mm, d MMM", Locale.getDefault())
 
-		attempts.forEach { attempt ->
+		val sortedAttempts = attempts.sortedByDescending { inputFormat.parse(it.date) }
+
+		sortedAttempts.forEach { attempt ->
 			val attemptView = layoutInflater.inflate(R.layout.item_attempt, null)
 
 			val playerNameText: TextView = attemptView.findViewById(R.id.playerNameText)
