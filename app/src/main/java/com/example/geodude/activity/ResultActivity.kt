@@ -15,16 +15,19 @@ class ResultActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_result)
 
 		val resultText: TextView = findViewById(R.id.resultText)
+		val cheatText: TextView = findViewById(R.id.cheatUsed)
 		val restartButton: Button = findViewById(R.id.restartBtn)
 
-		displayScore(resultText)
+		displayScore(resultText, cheatText)
 		checkRestartBtn(restartButton)
 	}
 
 	@SuppressLint("StringFormatMatches")
-	private fun displayScore(resultText: TextView) {
+	private fun displayScore(resultText: TextView, cheatText: TextView) {
 		val score = intent.getIntExtra("score", 0)
+		val cheatCount = intent.getIntExtra("cheatCount", 0)
 		resultText.text = getString(R.string.result_score, score)
+		cheatText.text = getString(R.string.cheat_used, cheatCount)
 	}
 
 	private fun checkRestartBtn(restartButton: Button) {

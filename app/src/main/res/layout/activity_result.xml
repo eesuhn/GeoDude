@@ -23,9 +23,22 @@
 		android:textSize="24sp"
 		android:textColor="@color/black"
 		android:fontFamily="@font/dynamo_condensed"
+		android:letterSpacing="0.02"
 		android:gravity="center"
 		tools:text="@string/result_score"
 		android:layout_marginBottom="22dp" />
+
+	<TextView
+		android:id="@+id/cheatUsed"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="12sp"
+		android:textColor="@color/primary"
+		android:fontFamily="@font/archivo_black"
+		android:letterSpacing="0.04"
+		android:gravity="center"
+		tools:text="@string/cheat_used"
+		android:layout_marginBottom="8dp" />
 
 	<androidx.appcompat.widget.AppCompatButton
 		android:id="@+id/restartBtn"

@@ -145,6 +145,8 @@ class QuestionActivity : AppCompatActivity() {
 		} else {
 			val intent = Intent(this, ResultActivity::class.java)
 			intent.putExtra("score", score)
+			cheatCount = 3 - cheatCount
+			intent.putExtra("cheatCount", cheatCount)
 			startActivity(intent)
 			overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 			finish()
