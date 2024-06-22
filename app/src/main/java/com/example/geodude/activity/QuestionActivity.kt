@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.example.geodude.R
 import com.example.geodude.model.QuestionModel
 import com.example.geodude.util.Constant
@@ -44,7 +45,7 @@ class QuestionActivity : AppCompatActivity() {
 
 		cheatBtn.setOnClickListener { handleCheat() }
 
-		questionList = Constant.getQuestionList()
+//		questionList = Constant.getQuestionList()
 		selectedAnswers = MutableList(questionList.size) { null }
 
 		progressBar = findViewById(R.id.progressBar)
@@ -90,7 +91,10 @@ class QuestionActivity : AppCompatActivity() {
 
 	private fun displayQuestion() {
 		val currentQuestion = questionList[currentQuestionIndex]
-		countryFlag.setImageResource(currentQuestion.image)
+		Glide.with(this)
+			.load(currentQuestion.image)
+			.into(countryFlag)
+
 		optionButtons.forEachIndexed { index, button ->
 			button.text = currentQuestion.options[index]
 			if (selectedAnswers[currentQuestionIndex] == index) {
@@ -115,10 +119,10 @@ class QuestionActivity : AppCompatActivity() {
 		selectedAnswers[currentQuestionIndex] = selectedIndex
 		updateScore()
 		if (normalFlow) {
-			displayQuestion()
+		displayQuestion()
 		}
 		Handler(Looper.getMainLooper()).postDelayed({
-			navigateToNextQuestion()
+		navigateToNextQuestion()
 		}, delay)
 	}
 

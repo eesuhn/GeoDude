@@ -9,7 +9,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.geodude.R
+import com.example.geodude.util.Constant
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +23,16 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		enableEdgeToEdge()
 		setContentView(R.layout.activity_main)
+
+		lifecycleScope.launch {
+			try {
+				val flagData = withContext(Dispatchers.IO) { Constant.fetchFlagData() }
+				val questionList = Constant.getQuestionList(flagData)
+				// Use questionList as needed
+			} catch (e: Exception) {
+				Toast.makeText(this@MainActivity, "Error fetching flag data: ${e.message}", Toast.LENGTH_LONG).show()
+			}
+		}
 
 		val startBtn: Button = findViewById(R.id.startBtn)
 		val nameInput: EditText = findViewById(R.id.nameInput)
