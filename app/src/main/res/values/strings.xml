@@ -12,9 +12,9 @@
 	<string name="cheat_btn"><i><u>CHEAT?</u></i></string>
 	<string name="cheats_remained_txt">Cheats remained: %1$s</string>
 	<string name="cheat_used">Cheats used: %1$s</string>
-	<string name="past_attempts">Past Attempts</string>
+	<string name="score_board">Score Board</string>
 	<string name="view_scores"><u><i>View Scores</i></u></string>
-	<string name="score_name">Name</string>
-	<string name="score_text">Score</string>
-	<string name="score_date">Date</string>
+	<string name="score_name"><u>Name</u></string>
+	<string name="score_text"><u>Score</u></string>
+	<string name="score_date"><u>Date</u></string>
 </resources>

@@ -40,7 +40,7 @@ class ResultActivity : AppCompatActivity() {
 	private fun saveCurrentAttempt() {
 		val playerName = intent.getStringExtra("playerName") ?: "Unknown"
 		val score = intent.getIntExtra("score", 0)
-		val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+		val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date())
 
 		val newAttempt = AttemptModel(playerName, score, date)
 		addNewAttempt(newAttempt)

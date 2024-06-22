@@ -11,6 +11,8 @@ import com.example.geodude.R
 import com.example.geodude.model.AttemptModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ScoreActivity : AppCompatActivity() {
 
@@ -42,6 +44,9 @@ class ScoreActivity : AppCompatActivity() {
 
 	@SuppressLint("InflateParams")
 	private fun displayAttempts(attempts: List<AttemptModel>, attemptsLayout: LinearLayout) {
+		val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+		val outputFormat = SimpleDateFormat("HH:mm, d MMM", Locale.getDefault())
+
 		attempts.forEach { attempt ->
 			val attemptView = layoutInflater.inflate(R.layout.item_attempt, null)
 
@@ -51,7 +56,10 @@ class ScoreActivity : AppCompatActivity() {
 
 			playerNameText.text = attempt.playerName
 			scoreText.text = attempt.score.toString()
-			dateText.text = attempt.date
+
+			val date = inputFormat.parse(attempt.date)
+			val formattedDate = date?.let { outputFormat.format(it) } ?: attempt.date
+			dateText.text = formattedDate
 
 			attemptsLayout.addView(attemptView)
 		}
