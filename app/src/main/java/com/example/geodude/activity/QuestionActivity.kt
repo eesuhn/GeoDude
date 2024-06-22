@@ -110,7 +110,7 @@ class QuestionActivity : AppCompatActivity() {
 	}
 
 	private fun updateProgressBar() {
-		val progress = ((currentQuestionIndex + 1) / questionList.size.toFloat() * 100).toInt()
+		val progress = (currentQuestionIndex / questionList.size.toFloat() * 100).toInt()
 		progressBar.progress = progress
 	}
 }
