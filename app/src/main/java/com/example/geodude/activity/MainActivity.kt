@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 			val name = nameInput.text.toString()
 			if (name.isNotEmpty()) {
 				Intent(this@MainActivity, QuestionActivity::class.java).also {
+					it.putExtra("playerName", name)
 					startActivity(it)
 					overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 					finish()
