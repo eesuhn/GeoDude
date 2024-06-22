@@ -1,9 +1,9 @@
-package com.example.geodude.utils
+package com.example.geodude.util
 
 import com.example.geodude.R
-import com.example.geodude.model.Question
+import com.example.geodude.model.QuestionModel
 
-object Constants {
+object Constant {
 	private val flagData = listOf(
 		Pair(R.drawable.ae, "United Arab Emirates"),
 		Pair(R.drawable.af, "Afghanistan"),
@@ -75,8 +75,8 @@ object Constants {
 	/**
 	 * Get a list of 10 random questions, with random options and answers
 	 */
-	fun getQuestionList(): List<Question> {
-		val questions = mutableListOf<Question>()
+	fun getQuestionList(): List<QuestionModel> {
+		val questionList = mutableListOf<QuestionModel>()
 		val flagDataCopy = flagData.toMutableList()
 
 		for (i in 1..10) {
@@ -96,7 +96,7 @@ object Constants {
 			options.shuffle()
 
 			val correctAnswerIndex = options.indexOf(country)
-			questions.add(Question(
+			questionList.add(QuestionModel(
 				id = i,
 				image = flag,
 				options = options,
@@ -106,6 +106,6 @@ object Constants {
 			// Remove used flag data to avoid repetition
 			flagDataCopy.removeAt(randomIndex)
 		}
-		return questions
+		return questionList
 	}
 }
