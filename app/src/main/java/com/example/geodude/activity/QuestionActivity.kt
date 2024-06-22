@@ -1,5 +1,6 @@
 package com.example.geodude.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
@@ -100,7 +101,10 @@ class QuestionActivity : AppCompatActivity() {
 			currentQuestionIndex++
 			displayQuestion()
 		} else {
-			Toast.makeText(this, "Your score is $score out of 10", Toast.LENGTH_LONG).show()
+			val intent = Intent(this, ResultActivity::class.java)
+			intent.putExtra("score", score)
+			startActivity(intent)
+			finish()
 		}
 	}
 
