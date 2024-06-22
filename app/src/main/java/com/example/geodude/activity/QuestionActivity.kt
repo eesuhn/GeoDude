@@ -104,6 +104,7 @@ class QuestionActivity : AppCompatActivity() {
 			val intent = Intent(this, ResultActivity::class.java)
 			intent.putExtra("score", score)
 			startActivity(intent)
+			overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 			finish()
 		}
 	}

@@ -24,6 +24,7 @@ class ResultActivity : AppCompatActivity() {
 			val intent = Intent(this, MainActivity::class.java)
 			intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 			startActivity(intent)
+			overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
 			finish()
 		}
 	}

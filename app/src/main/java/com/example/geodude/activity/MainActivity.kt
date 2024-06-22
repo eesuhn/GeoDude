@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 			if (name.isNotEmpty()) {
 				Intent(this@MainActivity, QuestionActivity::class.java).also {
 					startActivity(it)
+					overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 					finish()
 				}
 			} else {
