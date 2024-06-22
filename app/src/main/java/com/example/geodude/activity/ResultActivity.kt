@@ -10,16 +10,27 @@ import com.example.geodude.R
 
 class ResultActivity : AppCompatActivity() {
 
-	@SuppressLint("StringFormatMatches")
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_result)
 
-		val score = intent.getIntExtra("score", 0)
 		val resultText: TextView = findViewById(R.id.resultText)
-		resultText.text = getString(R.string.result_score, score)
-
+		val cheatText: TextView = findViewById(R.id.cheatUsed)
 		val restartButton: Button = findViewById(R.id.restartBtn)
+
+		displayScore(resultText, cheatText)
+		checkRestartBtn(restartButton)
+	}
+
+	@SuppressLint("StringFormatMatches")
+	private fun displayScore(resultText: TextView, cheatText: TextView) {
+		val score = intent.getIntExtra("score", 0)
+		val cheatCount = intent.getIntExtra("cheatCount", 0)
+		resultText.text = getString(R.string.result_score, score)
+		cheatText.text = getString(R.string.cheat_used, cheatCount)
+	}
+
+	private fun checkRestartBtn(restartButton: Button) {
 		restartButton.setOnClickListener {
 			val intent = Intent(this, MainActivity::class.java)
 			intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

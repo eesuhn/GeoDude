@@ -9,4 +9,7 @@
 	<string name="option_placeholder">Option</string>
 	<string name="restart_btn">Restart Quiz</string>
 	<string name="result_score">You got %1$s out of 10 correct!</string>
+	<string name="cheat_btn"><i><u>CHEAT?</u></i></string>
+	<string name="cheats_remained_txt">Cheats remained: %1$s</string>
+	<string name="cheat_used">Cheats used: %1$s</string>
 </resources>
