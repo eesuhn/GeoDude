@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.geodude.R
 
 class MainActivity : AppCompatActivity() {
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		enableEdgeToEdge()
@@ -29,9 +30,6 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	/**
-	 * Check if the start button is clicked and if the name input is not empty
-	 */
 	private fun checkStartBtn(startBtn: Button, nameInput: EditText) {
 		startBtn.setOnClickListener {
 			val name = nameInput.text.toString()

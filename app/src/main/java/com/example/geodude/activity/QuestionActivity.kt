@@ -12,6 +12,7 @@ import com.example.geodude.model.QuestionModel
 import com.example.geodude.util.Constant
 
 class QuestionActivity : AppCompatActivity() {
+
 	private lateinit var questionList: List<QuestionModel>
 	private var currentQuestionIndex: Int = 0
 	private var score: Int = 0
