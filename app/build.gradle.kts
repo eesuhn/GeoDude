@@ -45,4 +45,5 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
+	implementation("com.google.code.gson:gson:2.8.8")
 }
