@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,9 +27,19 @@ class ScoreActivity : AppCompatActivity() {
 		sharedPreferences = getSharedPreferences("GeoDudePrefs", Context.MODE_PRIVATE)
 
 		val attemptsLayout: LinearLayout = findViewById(R.id.attemptsLayout)
+		val backBtn: Button = findViewById(R.id.backBtn)
 
 		val attempts = getPastAttempts()
 		displayAttempts(attempts, attemptsLayout)
+
+		checkBackBtn(backBtn)
+	}
+
+	private fun checkBackBtn(backBtn: Button) {
+		backBtn.setOnClickListener {
+			finish()
+			overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+		}
 	}
 
 	private fun getPastAttempts(): List<AttemptModel> {
