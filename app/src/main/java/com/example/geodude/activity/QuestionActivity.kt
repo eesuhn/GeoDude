@@ -1,5 +1,6 @@
 package com.example.geodude.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -10,7 +11,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.geodude.R
 import com.example.geodude.model.QuestionModel
 import com.example.geodude.util.Constant
+import android.os.Handler
+import android.os.Looper
 
+@Suppress("DEPRECATION")
 class QuestionActivity : AppCompatActivity() {
 
 	private lateinit var questionList: List<QuestionModel>
@@ -24,10 +28,21 @@ class QuestionActivity : AppCompatActivity() {
 	private lateinit var prevBtn: ImageView
 	private lateinit var nextBtn: ImageView
 
+	private var cheatCount: Int = 3
+	private lateinit var cheatBtn: Button
+	private lateinit var cheatsRemainingText: TextView
+
+	@SuppressLint("StringFormatMatches")
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		enableEdgeToEdge()
 		setContentView(R.layout.activity_question)
+
+		cheatBtn = findViewById(R.id.cheatBtn)
+		cheatsRemainingText = findViewById(R.id.cheatsRemainingText)
+		cheatsRemainingText.text = getString(R.string.cheats_remained_txt, cheatCount)
+
+		cheatBtn.setOnClickListener { handleCheat() }
 
 		questionList = Constant.getQuestionList()
 		selectedAnswers = MutableList(questionList.size) { null }
@@ -58,6 +73,21 @@ class QuestionActivity : AppCompatActivity() {
 		displayQuestion()
 	}
 
+	@SuppressLint("StringFormatMatches")
+	private fun handleCheat() {
+		if (cheatCount > 0) {
+			cheatCount--
+			cheatsRemainingText.text = getString(R.string.cheats_remained_txt, cheatCount)
+			val correctAnswerIndex = questionList[currentQuestionIndex].correctAnswer
+			optionButtons[correctAnswerIndex].setBackgroundResource(R.drawable.bg_btn_cheated)
+			optionButtons[correctAnswerIndex].setTextColor(resources.getColor(R.color.white))
+
+			handleOptionSelected(correctAnswerIndex, 800, false)
+		} else {
+			Toast.makeText(this, "No cheats remaining", Toast.LENGTH_SHORT).show()
+		}
+	}
+
 	private fun displayQuestion() {
 		val currentQuestion = questionList[currentQuestionIndex]
 		countryFlag.setImageResource(currentQuestion.image)
@@ -74,11 +104,22 @@ class QuestionActivity : AppCompatActivity() {
 		updateProgressBar()
 	}
 
-	private fun handleOptionSelected(selectedIndex: Int) {
+	/**
+	 * Handle navigation to next question
+	 *
+	 * @param selectedIndex Index of the selected option
+	 * @param delay Delay before navigating to next question
+	 * @param normalFlow If true, refresh current question's UI
+	 */
+	private fun handleOptionSelected(selectedIndex: Int, delay: Long = 500, normalFlow: Boolean = true) {
 		selectedAnswers[currentQuestionIndex] = selectedIndex
 		updateScore()
-		displayQuestion()
-		navigateToNextQuestion()
+		if (normalFlow) {
+			displayQuestion()
+		}
+		Handler(Looper.getMainLooper()).postDelayed({
+			navigateToNextQuestion()
+		}, delay)
 	}
 
 	private fun updateScore() {

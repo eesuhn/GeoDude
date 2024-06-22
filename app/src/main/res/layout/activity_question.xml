@@ -171,6 +171,7 @@
 			android:gravity="center_vertical">
 
 			<TextView
+				android:id="@+id/cheatsRemainingText"
 				tools:text="Cheats remained: 3"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
