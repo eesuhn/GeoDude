@@ -81,7 +81,7 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
 		android:layout_marginTop="30dp"
-		android:backgroundTint="@color/secondary_variant"
+		android:backgroundTint="@color/secondary"
 		android:textColor="@color/on_secondary"
 		android:fontFamily="@font/dynamo_condensed"
 		android:letterSpacing="0.04"
