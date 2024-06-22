@@ -50,7 +50,7 @@ class ScoreActivity : AppCompatActivity() {
 			val dateText: TextView = attemptView.findViewById(R.id.dateText)
 
 			playerNameText.text = attempt.playerName
-			scoreText.text = getString(R.string.score_txt, attempt.score)
+			scoreText.text = attempt.score.toString()
 			dateText.text = attempt.date
 
 			attemptsLayout.addView(attemptView)

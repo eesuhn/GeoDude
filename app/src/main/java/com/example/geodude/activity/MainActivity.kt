@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity() {
 
 		val startBtn: Button = findViewById(R.id.startBtn)
 		val nameInput: EditText = findViewById(R.id.nameInput)
+		val viewScoresButton: Button = findViewById(R.id.viewScoresBtn)
 
 		checkStartBtn(startBtn, nameInput)
+		checkViewScoresBtn(viewScoresButton)
 
 		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 			val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -42,6 +44,14 @@ class MainActivity : AppCompatActivity() {
 			} else {
 				Toast.makeText(this@MainActivity, "Please enter your name", Toast.LENGTH_LONG).show()
 			}
+		}
+	}
+
+	private fun checkViewScoresBtn(viewScoresButton: Button) {
+		viewScoresButton.setOnClickListener {
+			val intent = Intent(this, ScoreActivity::class.java)
+			startActivity(intent)
+			overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
 		}
 	}
 }
