@@ -28,12 +28,14 @@ class ResultActivity : AppCompatActivity() {
 
 		val resultText: TextView = findViewById(R.id.resultText)
 		val cheatText: TextView = findViewById(R.id.cheatUsed)
-		val restartButton: Button = findViewById(R.id.restartBtn)
-		val viewScoresButton: Button = findViewById(R.id.viewScoresBtn)
-
 		displayScore(resultText, cheatText)
+
+		val restartButton: Button = findViewById(R.id.restartBtn)
 		checkRestartBtn(restartButton)
+
+		val viewScoresButton: Button = findViewById(R.id.viewScoresBtn)
 		checkViewScoresBtn(viewScoresButton)
+
 		saveCurrentAttempt()
 	}
 
@@ -73,14 +75,13 @@ class ResultActivity : AppCompatActivity() {
 	private fun displayScore(resultText: TextView, cheatText: TextView) {
 		val score = intent.getIntExtra("score", 0)
 		val cheatCount = intent.getIntExtra("cheatCount", 0)
-		resultText.text = getString(R.string.result_score, score)
+		resultText.text = getString(R.string.score_result, score)
 		cheatText.text = getString(R.string.cheat_used, cheatCount)
 	}
 
 	private fun checkRestartBtn(restartButton: Button) {
 		restartButton.setOnClickListener {
 			val intent = Intent(this, MainActivity::class.java)
-			intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 			startActivity(intent)
 			overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
 			finish()

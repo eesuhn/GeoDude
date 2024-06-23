@@ -2,6 +2,7 @@ package com.example.geodude.activity
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -27,18 +28,19 @@ class ScoreActivity : AppCompatActivity() {
 		sharedPreferences = getSharedPreferences("GeoDudePrefs", Context.MODE_PRIVATE)
 
 		val attemptsLayout: LinearLayout = findViewById(R.id.attemptsLayout)
-		val backBtn: Button = findViewById(R.id.backBtn)
-
 		val attempts = getPastAttempts()
 		displayAttempts(attempts, attemptsLayout)
 
+		val backBtn: Button = findViewById(R.id.backBtn)
 		checkBackBtn(backBtn)
 	}
 
 	private fun checkBackBtn(backBtn: Button) {
 		backBtn.setOnClickListener {
-			finish()
+			val intent = Intent(this, MainActivity::class.java)
+			startActivity(intent)
 			overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+			finish()
 		}
 	}
 
@@ -59,9 +61,8 @@ class ScoreActivity : AppCompatActivity() {
 		val outputFormat = SimpleDateFormat("HH:mm, d MMM", Locale.getDefault())
 
 		val sortedAttempts = attempts.sortedByDescending { inputFormat.parse(it.date) }
-
 		sortedAttempts.forEach { attempt ->
-			val attemptView = layoutInflater.inflate(R.layout.item_attempt, null)
+			val attemptView = layoutInflater.inflate(R.layout.score_item, null)
 
 			val playerNameText: TextView = attemptView.findViewById(R.id.playerNameText)
 			val scoreText: TextView = attemptView.findViewById(R.id.scoreText)
@@ -76,23 +77,5 @@ class ScoreActivity : AppCompatActivity() {
 
 			attemptsLayout.addView(attemptView)
 		}
-	}
-
-	/**
-	 * @deprecated Not used in current implementation
-	 */
-	private fun addNewAttempt(newAttempt: AttemptModel) {
-		val attempts = getPastAttempts().toMutableList()
-		attempts.add(newAttempt)
-		savePastAttempts(attempts)
-	}
-
-	/**
-	 * @deprecated Not used in current implementation
-	 */
-	private fun savePastAttempts(attempts: List<AttemptModel>) {
-		val gson = Gson()
-		val json = gson.toJson(attempts)
-		sharedPreferences.edit().putString(attemptsKey, json).apply()
 	}
 }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/main"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".activity.QuestionActivity"
-	android:background="@drawable/bg_question"
+	android:background="@drawable/bg_primary_270"
 	android:orientation="vertical"
 	android:paddingTop="10dp"
 	android:gravity="center">
@@ -43,7 +42,7 @@
 			android:layout_gravity="center_vertical"
 			android:gravity="center"
 			android:textDirection="inherit"
-			android:background="@drawable/bg_box"
+			android:background="@drawable/bg_primary_box"
 			tools:targetApi="p" />
 
 	</LinearLayout>
@@ -120,7 +119,7 @@
 			android:id="@+id/optionOne"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			tools:text="@string/option_placeholder"
+			tools:text="Option"
 			android:background="@drawable/bg_btn"
 			android:fontFamily="@font/dynamo_condensed"
 			android:letterSpacing="0.06"
@@ -132,7 +131,7 @@
 			android:id="@+id/optionTwo"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			tools:text="@string/option_placeholder"
+			tools:text="Option"
 			android:background="@drawable/bg_btn"
 			android:fontFamily="@font/dynamo_condensed"
 			android:letterSpacing="0.06"
@@ -144,7 +143,7 @@
 			android:id="@+id/optionThree"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			tools:text="@string/option_placeholder"
+			tools:text="Option"
 			android:background="@drawable/bg_btn"
 			android:fontFamily="@font/dynamo_condensed"
 			android:letterSpacing="0.06"
@@ -156,7 +155,7 @@
 			android:id="@+id/optionFour"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			tools:text="@string/option_placeholder"
+			tools:text="Option"
 			android:background="@drawable/bg_btn"
 			android:fontFamily="@font/dynamo_condensed"
 			android:letterSpacing="0.06"

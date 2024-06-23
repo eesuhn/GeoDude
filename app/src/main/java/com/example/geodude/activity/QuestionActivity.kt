@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.geodude.R
 import com.example.geodude.model.QuestionModel
 import com.example.geodude.util.Constant
@@ -19,12 +16,13 @@ class QuestionActivity : AppCompatActivity() {
 
 	private lateinit var questionList: List<QuestionModel>
 	private var currentQuestionIndex: Int = 0
-	private var score: Int = 0
 	private lateinit var selectedAnswers: MutableList<Int?>
+	private var score: Int = 0
 
 	private lateinit var progressBar: ProgressBar
 	private lateinit var countryFlag: ImageView
 	private lateinit var optionButtons: List<Button>
+
 	private lateinit var prevBtn: ImageView
 	private lateinit var nextBtn: ImageView
 
@@ -35,13 +33,11 @@ class QuestionActivity : AppCompatActivity() {
 	@SuppressLint("StringFormatMatches")
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		enableEdgeToEdge()
 		setContentView(R.layout.activity_question)
 
 		cheatBtn = findViewById(R.id.cheatBtn)
 		cheatsRemainingText = findViewById(R.id.cheatsRemainingText)
 		cheatsRemainingText.text = getString(R.string.cheats_remained_txt, cheatCount)
-
 		cheatBtn.setOnClickListener { handleCheat() }
 
 		questionList = Constant.getQuestionList()
@@ -49,26 +45,21 @@ class QuestionActivity : AppCompatActivity() {
 
 		progressBar = findViewById(R.id.progressBar)
 		countryFlag = findViewById(R.id.countryFlag)
+
 		optionButtons = listOf(
 			findViewById(R.id.optionOne),
 			findViewById(R.id.optionTwo),
 			findViewById(R.id.optionThree),
 			findViewById(R.id.optionFour)
 		)
-		prevBtn = findViewById(R.id.prevBtn)
-		nextBtn = findViewById(R.id.nextBtn)
-
-		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-			val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-			v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-			insets
-		}
-
-		prevBtn.setOnClickListener { navigateToPreviousQuestion() }
-		nextBtn.setOnClickListener { navigateToNextQuestion() }
 		optionButtons.forEachIndexed { index, button ->
 			button.setOnClickListener { handleOptionSelected(index) }
 		}
+
+		prevBtn = findViewById(R.id.prevBtn)
+		nextBtn = findViewById(R.id.nextBtn)
+		prevBtn.setOnClickListener { navigateToPreviousQuestion() }
+		nextBtn.setOnClickListener { navigateToNextQuestion() }
 
 		displayQuestion()
 	}
@@ -81,10 +72,9 @@ class QuestionActivity : AppCompatActivity() {
 			val correctAnswerIndex = questionList[currentQuestionIndex].correctAnswer
 			optionButtons[correctAnswerIndex].setBackgroundResource(R.drawable.bg_btn_cheated)
 			optionButtons[correctAnswerIndex].setTextColor(resources.getColor(R.color.white))
-
-			handleOptionSelected(correctAnswerIndex, 800, false)
+			handleOptionSelected(correctAnswerIndex, delay = 800, normalFlow = false)
 		} else {
-			Toast.makeText(this, "No cheats remaining", Toast.LENGTH_SHORT).show()
+			Toast.makeText(this, getString(R.string.no_cheats_txt), Toast.LENGTH_SHORT).show()
 		}
 	}
 
@@ -138,6 +128,9 @@ class QuestionActivity : AppCompatActivity() {
 		}
 	}
 
+	/**
+	 * Pass data to ResultActivity if reached of the end of questions
+	 */
 	private fun navigateToNextQuestion() {
 		if (currentQuestionIndex < questionList.size - 1) {
 			currentQuestionIndex++
@@ -145,10 +138,10 @@ class QuestionActivity : AppCompatActivity() {
 		} else {
 			val playerName = intent.getStringExtra("playerName")
 			val intent = Intent(this, ResultActivity::class.java)
-			intent.putExtra("score", score)
 			cheatCount = 3 - cheatCount
-			intent.putExtra("cheatCount", cheatCount)
 			intent.putExtra("playerName", playerName)
+			intent.putExtra("score", score)
+			intent.putExtra("cheatCount", cheatCount)
 			startActivity(intent)
 			overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 			finish()
