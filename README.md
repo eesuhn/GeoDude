@@ -2,7 +2,9 @@
 
 <img src="./app/src/main/res/drawable-hdpi/ic_logo.png" alt="logo" width="60" />
 
-🏁 **Geo-guessing** game based on *country flags* 🏁
+🏁 **Geo-guessing** game based on *country flags* 🏁 <br>
+
+[**Check out the Demo**](https://www.youtube.com/watch?v=n5Kpai7mRxs) <br>
 
 <p align="left">
 	<img src="https://github.com/eesuhn/GeoDude/assets/102596628/f3f1b4d9-ac4c-447b-ad08-8051fe771fb3" alt="screenshot1" width="200" />
