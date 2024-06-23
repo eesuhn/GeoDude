@@ -61,7 +61,7 @@ class ScoreActivity : AppCompatActivity() {
 		val sortedAttempts = attempts.sortedByDescending { inputFormat.parse(it.date) }
 
 		sortedAttempts.forEach { attempt ->
-			val attemptView = layoutInflater.inflate(R.layout.item_attempt, null)
+			val attemptView = layoutInflater.inflate(R.layout.score_item, null)
 
 			val playerNameText: TextView = attemptView.findViewById(R.id.playerNameText)
 			val scoreText: TextView = attemptView.findViewById(R.id.scoreText)

@@ -5,7 +5,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".activity.QuestionActivity"
-	android:background="@drawable/bg_question"
+	android:background="@drawable/bg_primary_270"
 	android:orientation="vertical"
 	android:paddingTop="10dp"
 	android:gravity="center">
@@ -42,7 +42,7 @@
 			android:layout_gravity="center_vertical"
 			android:gravity="center"
 			android:textDirection="inherit"
-			android:background="@drawable/bg_box"
+			android:background="@drawable/bg_primary_box"
 			tools:targetApi="p" />
 
 	</LinearLayout>
