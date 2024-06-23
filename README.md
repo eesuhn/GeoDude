@@ -6,14 +6,12 @@
 
 [**Check out the Demo**](https://www.youtube.com/watch?v=n5Kpai7mRxs) <br>
 
-<p align="left">
-	<img src="https://github.com/eesuhn/GeoDude/assets/102596628/f3f1b4d9-ac4c-447b-ad08-8051fe771fb3" alt="screenshot1" width="200" />
-	<img src="https://github.com/eesuhn/GeoDude/assets/102596628/1652a28f-3b93-499c-92e9-b26983aa8cda" alt="demo" width="200" />
-	<img src="https://github.com/eesuhn/GeoDude/assets/102596628/c9bc3f83-1acc-4ed8-9fdd-87414f9cd052" alt="screenshot2" width="200" />
-	<img src="https://github.com/eesuhn/GeoDude/assets/102596628/3f8595cd-6ae3-47b0-a63b-b02308fe1a2e" alt="screenshot3" width="200" />
-</p>
+<img src="https://github.com/eesuhn/GeoDude/assets/102596628/f3f1b4d9-ac4c-447b-ad08-8051fe771fb3" alt="screenshot1" width="200" />
+<img src="https://github.com/eesuhn/GeoDude/assets/102596628/1652a28f-3b93-499c-92e9-b26983aa8cda" alt="demo" width="200" />
+<img src="https://github.com/eesuhn/GeoDude/assets/102596628/c9bc3f83-1acc-4ed8-9fdd-87414f9cd052" alt="screenshot2" width="200" />
+<img src="https://github.com/eesuhn/GeoDude/assets/102596628/3f8595cd-6ae3-47b0-a63b-b02308fe1a2e" alt="screenshot3" width="200" />
 
-### Features:
-- **Interactive Gameplay**: Navigate between questions and track your progress.
-- **Score Tracking**: Keep track of your correct answers with a score board.
-- **Cheat Option**: Reveal the correct answer when needed.
+#### Features:
+- **Gameplay**: Navigate between questions and track your progress
+- **Score Board**: Keep track of your score
+- **Cheat**: Reveal the correct answer when needed
