@@ -2,6 +2,7 @@ package com.example.geodude.activity
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -36,8 +37,10 @@ class ScoreActivity : AppCompatActivity() {
 
 	private fun checkBackBtn(backBtn: Button) {
 		backBtn.setOnClickListener {
-			finish()
+			val intent = Intent(this, MainActivity::class.java)
+			startActivity(intent)
 			overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+			finish()
 		}
 	}
 
