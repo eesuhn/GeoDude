@@ -27,11 +27,10 @@ class ScoreActivity : AppCompatActivity() {
 		sharedPreferences = getSharedPreferences("GeoDudePrefs", Context.MODE_PRIVATE)
 
 		val attemptsLayout: LinearLayout = findViewById(R.id.attemptsLayout)
-		val backBtn: Button = findViewById(R.id.backBtn)
-
 		val attempts = getPastAttempts()
 		displayAttempts(attempts, attemptsLayout)
 
+		val backBtn: Button = findViewById(R.id.backBtn)
 		checkBackBtn(backBtn)
 	}
 
@@ -59,7 +58,6 @@ class ScoreActivity : AppCompatActivity() {
 		val outputFormat = SimpleDateFormat("HH:mm, d MMM", Locale.getDefault())
 
 		val sortedAttempts = attempts.sortedByDescending { inputFormat.parse(it.date) }
-
 		sortedAttempts.forEach { attempt ->
 			val attemptView = layoutInflater.inflate(R.layout.score_item, null)
 
@@ -76,23 +74,5 @@ class ScoreActivity : AppCompatActivity() {
 
 			attemptsLayout.addView(attemptView)
 		}
-	}
-
-	/**
-	 * @deprecated Not used in current implementation
-	 */
-	private fun addNewAttempt(newAttempt: AttemptModel) {
-		val attempts = getPastAttempts().toMutableList()
-		attempts.add(newAttempt)
-		savePastAttempts(attempts)
-	}
-
-	/**
-	 * @deprecated Not used in current implementation
-	 */
-	private fun savePastAttempts(attempts: List<AttemptModel>) {
-		val gson = Gson()
-		val json = gson.toJson(attempts)
-		sharedPreferences.edit().putString(attemptsKey, json).apply()
 	}
 }

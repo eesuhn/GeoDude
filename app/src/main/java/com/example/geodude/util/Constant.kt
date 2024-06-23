@@ -74,6 +74,7 @@ object Constant {
 
 	/**
 	 * Get a list of 10 random questions, with random options and answers
+	 * @return List of [QuestionModel]
 	 */
 	fun getQuestionList(): List<QuestionModel> {
 		val questionList = mutableListOf<QuestionModel>()
