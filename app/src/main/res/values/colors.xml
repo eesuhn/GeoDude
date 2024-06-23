@@ -4,7 +4,6 @@
 	<color name="black">#212121</color>
 	<color name="white">#FFFFFF</color>
 	<color name="dark_gray">#25FFFFFF</color>
-	<color name="light_gray">#F5F5F5</color>
 	<color name="green">#4CAF50</color>
 
 	<!-- Logo colors -->
@@ -13,16 +12,13 @@
 
 	<!-- Primary colors -->
 	<color name="primary">#607D8B</color>
-	<color name="primary_variant">#455A64</color>
 	<color name="on_primary">#FFFFFF</color>
 
 	<!-- Secondary colors -->
 	<color name="secondary">#CCB1BC</color>
-	<color name="secondary_variant">#8C7B8B</color>
 	<color name="on_secondary">#FFFFFF</color>
 
 	<!-- Accent colors -->
 	<color name="accent">#B6938E</color>
-	<color name="accent_variant">#8C6D62</color>
 	<color name="on_accent">#FFFFFF</color>
 </resources>
